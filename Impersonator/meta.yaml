@@ -1,0 +1,6 @@
+name: Impersonator
+version: 1.0
+description: Give Super Admins the ability to authenticate as any user for easier debugging.
+url: -
+developer: Aryeh Raber
+developer_url: http://aryehdesigns.com
