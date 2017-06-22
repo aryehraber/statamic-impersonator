@@ -12,11 +12,9 @@ class ImpersonatorController extends Controller
 
     public function init()
     {
-        $this->impersonatorId = request()->session()->get('impersonator_id');
-        
-        $user = Auth::user();
+        $this->impersonatorId = session()->get('impersonator_id');
 
-        if (! $this->impersonatorId && (! $user || ! $user->isSuper())) {
+        if (! $this->impersonatorId && ! $this->authorize('super')) {
             throw new \Exception('Unauthorized.');
         }
     }
@@ -44,8 +42,8 @@ class ImpersonatorController extends Controller
             return back()->withErrors('Impersonation failed: user not found.');
         }
 
-        request()->session()->put('impersonator_id', Auth::user()->id());
-        
+        session()->put('impersonator_id', Auth::user()->id());
+
         Auth::loginUsingId($user->id());
 
         return redirect()->route('cp');
@@ -59,7 +57,7 @@ class ImpersonatorController extends Controller
 
         Auth::loginUsingId($user->id());
         
-        request()->session()->forget('impersonator_id');
+        session()->forget('impersonator_id');
         
         return redirect()->route('cp');
     }
