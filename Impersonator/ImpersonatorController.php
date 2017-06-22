@@ -14,7 +14,7 @@ class ImpersonatorController extends Controller
     {
         $this->impersonatorId = session()->get('impersonator_id');
 
-        if (! $this->impersonatorId && ! $this->authorize('super')) {
+        if ($this->isUnauthorised()) {
             throw new \Exception('Unauthorized.');
         }
     }
@@ -60,5 +60,10 @@ class ImpersonatorController extends Controller
         session()->forget('impersonator_id');
         
         return redirect()->route('cp');
+    }
+
+    private function isUnauthorised()
+    {
+        return ! $this->impersonatorId && (! Auth::user() || ! Auth::user()->isSuper());
     }
 }
