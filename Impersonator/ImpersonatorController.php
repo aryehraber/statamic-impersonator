@@ -56,9 +56,9 @@ class ImpersonatorController extends Controller
         }
 
         Auth::loginUsingId($user->id());
-        
+
         session()->forget('impersonator_id');
-        
+
         return redirect()->route('cp');
     }
 
