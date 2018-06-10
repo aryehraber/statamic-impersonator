@@ -36,13 +36,13 @@ class ImpersonatorController extends Controller
 
     public function postGo()
     {
-        if ($this->impersonatorId) {
-            return back()->withErrors('You are already logged in as another user.');
-        } elseif (! $user = User::find(request('id'))) {
+        if (! $user = User::find(request('id'))) {
             return back()->withErrors('Impersonation failed: user not found.');
         }
 
-        session()->put('impersonator_id', Auth::user()->id());
+        if (! $this->impersonatorId) {
+            session()->put('impersonator_id', Auth::user()->id());
+        }
 
         Auth::loginUsingId($user->id());
 
