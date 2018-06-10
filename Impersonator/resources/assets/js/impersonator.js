@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    $('#statamic .foot').prepend('<div id="impersonator"><span class="message">Impersonation Mode</span><a class="terminate" href="/!/Impersonator/terminate">Back To My Account</a></div>');
+    $('#statamic').prepend('<div class="site-status-stripe flexy"><div class="fill">You are running Impersonator Mode</div><a class="btn btn-small" href="/!/Impersonator/terminate">Back To My Account</a></div>');
 
 });

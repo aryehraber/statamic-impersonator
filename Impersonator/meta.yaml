@@ -1,5 +1,5 @@
 name: Impersonator
-version: 1.0.1
+version: 1.1
 description: Give Super Admins the ability to authenticate as any user for easier debugging.
 url: -
 developer: Aryeh Raber
