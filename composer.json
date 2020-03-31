@@ -1,8 +1,22 @@
 {
     "name": "aryehraber/statamic-impersonator",
+    "type": "statamic-addon",
     "description": "Give Admins the ability to authenticate as any user for easier debugging.",
+    "keywords": [
+        "statamic",
+        "authentication",
+        "impersonator"
+    ],
     "homepage": "https://github.com/aryehraber/statamic-impersonator",
     "license": "MIT",
+    "require": {
+        "statamic/cms": "3.0.*@beta"
+    },
+    "autoload": {
+        "psr-4": {
+            "AryehRaber\\Impersonator\\": "src"
+        }
+    },
     "authors": [
         {
             "name": "Aryeh Raber",
@@ -10,5 +24,19 @@
             "homepage": "https://aryeh.dev",
             "role": "Developer"
         }
-    ]
+    ],
+    "extra": {
+        "statamic": {
+            "name": "Impersonator",
+            "description": "Give Admins the ability to authenticate as any user for easier debugging.",
+            "version": "2.0.0-beta.1"
+        },
+        "laravel": {
+            "providers": [
+                "AryehRaber\\Impersonator\\ImpersonatorServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
