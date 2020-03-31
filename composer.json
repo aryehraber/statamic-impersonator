@@ -1,0 +1,14 @@
+{
+    "name": "aryehraber/statamic-impersonator",
+    "description": "Give Admins the ability to authenticate as any user for easier debugging.",
+    "homepage": "https://github.com/aryehraber/statamic-impersonator",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aryeh Raber",
+            "email": "aryeh.raber@gmail.com",
+            "homepage": "https://aryeh.dev",
+            "role": "Developer"
+        }
+    ]
+}
