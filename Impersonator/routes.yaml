@@ -1,4 +1,0 @@
-routes:
-  /:
-    as: impersonator
-    uses: index
