@@ -7,12 +7,11 @@ use Statamic\Facades\Utility;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 use Statamic\Providers\AddonServiceProvider;
-use AryehRaber\Impersonator\Tags\Impersonator;
 
 class ImpersonatorServiceProvider extends AddonServiceProvider
 {
     protected $tags = [
-        Impersonator::class,
+        ImpersonatorTags::class,
     ];
 
     protected $middleware = [

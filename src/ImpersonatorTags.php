@@ -1,11 +1,13 @@
 <?php
 
-namespace AryehRaber\Impersonator\Tags;
+namespace AryehRaber\Impersonator;
 
 use Statamic\Tags\Tags;
 
-class Impersonator extends Tags
+class ImpersonatorTags extends Tags
 {
+    protected static $handle = 'impersonator';
+
     /**
      * The {{ impersonator:active }} tag
      *
