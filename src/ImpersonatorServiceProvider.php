@@ -20,6 +20,10 @@ class ImpersonatorServiceProvider extends AddonServiceProvider
         ],
     ];
 
+    protected $routes = [
+        'web' => __DIR__.'/../routes/web.php',
+    ];
+
     public function boot()
     {
         parent::boot();
@@ -31,11 +35,6 @@ class ImpersonatorServiceProvider extends AddonServiceProvider
         $this->publishes([
             __DIR__.'/../config/impersonator.php' => config_path('impersonator.php'),
         ], 'config');
-
-        $this->registerWebRoutes(function () {
-            Route::get(config('statamic.routes.action').'/impersonator/terminate', [ImpersonatorController::class, 'destroy'])
-                ->name('statamic.cp.impersonator.terminate');
-        });
 
         Utility::make('impersonator')
             ->title(__('Impersonator'))
