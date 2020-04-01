@@ -30,9 +30,9 @@ class ImpersonatorController extends Controller
             return back()->with('error', 'Impersonation failed: user not found.');
         }
 
-        session()->put('impersonator_id', Auth::user()->id());
+        session()->put('impersonator_id', Auth::user()->getAuthIdentifier());
 
-        Auth::loginUsingId($user->id());
+        Auth::loginUsingId($user->getAuthIdentifier());
 
         $route = $user->can('access cp') ? cp_route('dashboard') : '/';
 
@@ -45,7 +45,7 @@ class ImpersonatorController extends Controller
             return back()->with('error', 'Error logging back into original account. Please log back in manually.');
         }
 
-        Auth::loginUsingId($user->id());
+        Auth::loginUsingId($user->getAuthIdentifier());
 
         session()->forget('impersonator_id');
 
