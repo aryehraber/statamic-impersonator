@@ -14,7 +14,7 @@ class ImpersonatorController extends Controller
     public function index()
     {
         $users = User::all()->reject(function ($user) {
-            return Auth::user()->id() === $user->id();
+            return Auth::user()->getAuthIdentifier() === $user->getAuthIdentifier();
         });
 
         return view('impersonator::index', ['users' => $users]);
