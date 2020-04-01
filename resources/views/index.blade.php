@@ -24,7 +24,7 @@
     @else
         <p class="mb-2 text-sm text-grey leading-normal">
             Select a user below and click "Go" to start your Impersonation session.<br>
-            To terminate your session, click the <strong>"Back to my account"</strong> link (<a href="#docs">see Docs</a>).
+            To terminate your session, click the <strong>"Back to my account"</strong> link (<a href="https://github.com/aryehraber/statamic-impersonator/blob/statamic-3/README.md#usage">see Docs</a>).
         </p>
 
         <div class="card">
