@@ -55,5 +55,7 @@ class ImpersonatorServiceProvider extends AddonServiceProvider
                     ->icon('revealer');
             }
         });
+
+        ImpersonatorAction::register();
     }
 }
