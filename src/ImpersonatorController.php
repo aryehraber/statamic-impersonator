@@ -9,8 +9,6 @@ use Statamic\Http\Controllers\Controller;
 
 class ImpersonatorController extends Controller
 {
-    protected $impersonatorId;
-
     public function index()
     {
         $users = User::all()->reject(function ($user) {
@@ -30,9 +28,7 @@ class ImpersonatorController extends Controller
             return back()->with('error', 'Impersonation failed: user not found.');
         }
 
-        session()->put('impersonator_id', Auth::user()->getAuthIdentifier());
-
-        Auth::loginUsingId($user->getAuthIdentifier());
+        Impersonator::impersonate($user);
 
         $route = $user->can('access cp') ? cp_route('dashboard') : '/';
 
@@ -41,13 +37,9 @@ class ImpersonatorController extends Controller
 
     public function destroy()
     {
-        if (! $user = User::find(session('impersonator_id'))) {
+        if (! Impersonator::terminate()) {
             return back()->with('error', 'Error logging back into original account. Please log back in manually.');
         }
-
-        Auth::loginUsingId($user->getAuthIdentifier());
-
-        session()->forget('impersonator_id');
 
         return redirect(cp_route('utilities.impersonator.index'))->with('success', 'Welcome back!');
     }
