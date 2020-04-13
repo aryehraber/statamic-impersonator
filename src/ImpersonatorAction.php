@@ -12,20 +12,22 @@ class ImpersonatorAction extends Action
 
     protected $bulk = false;
 
-    protected $user;
-
     public function run($items, $values)
     {
-        if (! ($this->user = $items->first()) instanceof User) {
+        if (! ($user = $items->first()) instanceof User) {
             return;
         }
 
-        Impersonator::impersonate($this->user);
+        Impersonator::impersonate($user);
     }
 
-    public function redirect()
+    public function redirect($items, $values)
     {
-        return $this->user->can('access cp') ? cp_route('dashboard') : '/';
+        if (! ($user = $items->first()) instanceof User) {
+            return;
+        }
+
+        return $user->can('access cp') ? cp_route('dashboard') : '/';
     }
 
     public function filter($item)
