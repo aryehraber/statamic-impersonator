@@ -16,15 +16,15 @@ class ImpersonatorMiddleware
         $this->response = $next($request);
 
         if (! $this->shouldInjectTerminateLink()) {
-            return $next($request);
+            return $this->response;
         }
 
         if (! $content = $this->response->getContent()) {
-            return $next($request);
+            return $this->response;
         }
 
         if (($pos = strripos($content, '</body>')) === false) {
-            return $next($request);
+            return $this->response;
         }
 
         $this->injectTerminateLink($content, $pos);
