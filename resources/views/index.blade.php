@@ -40,7 +40,7 @@
                         @endforeach
                     </select>
 
-                    <svg-icon name="chevron-down-xs" class="absolute pin-y pin-r w-2 h-full mr-1.5 pointer-events-none"></svg-icon>
+                    <svg-icon name="chevron-down-xs" class="absolute inset-y-0 right-0 w-2 h-full mr-1.5 pointer-events-none"></svg-icon>
                 </div>
 
                 <button class="btn-primary ml-1">{{ __('Go') }}</button>
