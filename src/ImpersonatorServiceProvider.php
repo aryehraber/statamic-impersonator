@@ -14,7 +14,7 @@ class ImpersonatorServiceProvider extends AddonServiceProvider
         ImpersonatorTags::class,
     ];
 
-    protected $middleware = [
+    protected $middlewareGroups = [
         'web' => [
             ImpersonatorMiddleware::class,
         ],
