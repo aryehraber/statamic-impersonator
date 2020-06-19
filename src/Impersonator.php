@@ -26,4 +26,13 @@ class Impersonator
 
         return true;
     }
+
+    public static function redirectTo($user)
+    {
+        if ($url = config('impersonator.redirect_url')) {
+            return $url;
+        }
+
+        return $user->can('access cp') ? cp_route('dashboard') : '/';
+    }
 }

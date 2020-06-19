@@ -30,9 +30,7 @@ class ImpersonatorController extends Controller
 
         Impersonator::impersonate($user);
 
-        $route = $user->can('access cp') ? cp_route('dashboard') : '/';
-
-        return redirect($route)->with('success', 'Impersonation session started!');
+        return redirect(Impersonator::redirectTo($user))->with('success', 'Impersonation session started!');
     }
 
     public function destroy()
