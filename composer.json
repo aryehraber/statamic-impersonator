@@ -29,7 +29,7 @@
         "statamic": {
             "name": "Impersonator",
             "description": "Give Admins the ability to authenticate as any user for easier debugging.",
-            "version": "2.0.0-beta.6"
+            "version": "2.0.0-beta.7"
         },
         "laravel": {
             "providers": [
