@@ -16,16 +16,6 @@ Publish the config file (optional):
 php artisan vendor:publish --provider="AryehRaber\Impersonator\ImpersonatorServiceProvider" --tag="config"
 ```
 
-Alternately, you can manually setup the config file by creating `impersonator.php` inside your project's `config` directory:
-
-```php
-<?php
-
-return [
-    'inject_terminate_link' => true,
-];
-```
-
 After installation, all Super Admins will see a new Impersonator utility listed under `Tools > Utilities`. Regular CP users can also be given access, but will require the "Impersonator" permission to be activated for their User Role.
 
 ## Usage

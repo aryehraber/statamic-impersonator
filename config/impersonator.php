@@ -9,8 +9,8 @@ return [
     |--------------------------------------------------------------------------
     |
     | The URL where the Impersonator will be redirected after starting an
-    | impersonation session. By default, the redirect URL will be the CP
-    | dashboard or the homepage if the user doesn't have CP access.
+    | impersonation session. By default, the redirect URL will be the
+    | CP Dashboard or the Homepage if the user doesn't have CP access.
     |
     */
     'redirect_url' => null,
