@@ -47,7 +47,7 @@ class ImpersonatorAction extends Action
             return;
         }
 
-        return $user->can('access cp') ? cp_route('dashboard') : '/';
+        return Impersonator::redirectTo($user);
     }
 
     public function authorize($user, $item)
