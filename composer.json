@@ -10,7 +10,7 @@
     "homepage": "https://github.com/aryehraber/statamic-impersonator",
     "license": "MIT",
     "require": {
-        "statamic/cms": "3.0.*@beta"
+        "statamic/cms": "3.0.*"
     },
     "autoload": {
         "psr-4": {
@@ -29,7 +29,7 @@
         "statamic": {
             "name": "Impersonator",
             "description": "Give Admins the ability to authenticate as any user for easier debugging.",
-            "version": "2.0.0-beta.7"
+            "version": "2.0.0"
         },
         "laravel": {
             "providers": [
