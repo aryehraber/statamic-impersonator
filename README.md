@@ -7,7 +7,7 @@
 Install the addon via composer:
 
 ```
-composer require aryehraber/statamic-impersonator:dev-statamic-3
+composer require aryehraber/statamic-impersonator
 ```
 
 Publish the config file (optional):
