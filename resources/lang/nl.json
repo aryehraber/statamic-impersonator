@@ -1,0 +1,18 @@
+{
+    "Impersonator": "Imitator",
+    "Authenticate as another user.": "Log in als een andere gebruiker.",
+    "Select a user below and click \":login\" to start your Impersonation session.": "Selecteer hieronder een gebruiker en klik op \"Inloggen\" om in te loggen als die gebruiker.",
+    "To terminate your session, click the \":link\" link": "Om weer terug te gaan naar je eigen account, klik je op de \"Terug naar mijn account\" link",
+    "Back to my account": "Terug naar mijn account",
+    "see Docs": "zie ook de documentatie",
+    "Impersonation failed: you are already impersonating another user.": "Inloggen mislukt: je bent als ingelogd als een andere gebruiker.",
+    "Impersonation failed: user not found.": "Inloggen mislukt: gebruiker is niet gevonden.",
+    "Impersonation session started!": "Imitator sessie succesvol gestart!",
+    "Error logging back into original account. Please log back in manually.": "Er ging iets mis bij het inloggen in je originele account. Log zelf uit en log daarna opnieuw in met je originele account.",
+    "Start Impersonation": "Inloggen als deze gebruiker",
+    "You are currently impersonating another user, please": "Je bent momenteel al ingelogd als een andere gebruiker,",
+    "return to your own account": "ga eerst terug naar je eigen account",
+    "to switch to another user.": "voordat je inlogt als een andere gebruiker.",
+    "Impersonation Session Active": "Imitatie sessie actief",
+    "Welcome back!": "Welkom terug!"
+}

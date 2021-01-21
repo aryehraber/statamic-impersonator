@@ -21,24 +21,24 @@ class ImpersonatorController extends Controller
     public function store()
     {
         if (session('impersonator_id')) {
-            return back()->with('error', 'Impersonation failed: you are already impersonating another user.');
+            return back()->with('error', __('Impersonation failed: you are already impersonating another user.'));
         }
 
         if (! $user = User::find(request('user_id'))) {
-            return back()->with('error', 'Impersonation failed: user not found.');
+            return back()->with('error', __('Impersonation failed: user not found.'));
         }
 
         Impersonator::impersonate($user);
 
-        return redirect(Impersonator::redirectTo($user))->with('success', 'Impersonation session started!');
+        return redirect(Impersonator::redirectTo($user))->with('success', __('Impersonation session started!'));
     }
 
     public function destroy()
     {
         if (! Impersonator::terminate()) {
-            return back()->with('error', 'Error logging back into original account. Please log back in manually.');
+            return back()->with('error', __('Error logging back into original account. Please log back in manually.'));
         }
 
-        return redirect(cp_route('utilities.impersonator.index'))->with('success', 'Welcome back!');
+        return redirect(cp_route('utilities.impersonator.index'))->with('success', __('Welcome back!'));
     }
 }

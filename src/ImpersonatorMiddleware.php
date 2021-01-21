@@ -5,7 +5,6 @@ namespace AryehRaber\Impersonator;
 use Closure;
 use Statamic\Support\Str;
 use Illuminate\Http\Response;
-use Illuminate\Support\HtmlString;
 
 class ImpersonatorMiddleware
 {

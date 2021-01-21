@@ -24,6 +24,11 @@ class ImpersonatorServiceProvider extends AddonServiceProvider
         'web' => __DIR__.'/../routes/web.php',
     ];
 
+    public function register()
+    {
+        $this->loadJsonTranslationsFrom(__DIR__ . '/../resources/lang');
+    }
+
     public function boot()
     {
         parent::boot();
