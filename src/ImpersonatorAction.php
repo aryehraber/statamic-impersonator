@@ -52,6 +52,6 @@ class ImpersonatorAction extends Action
 
     public function authorize($user, $item)
     {
-        return $user->can('impersonator');
+        return $user->can('access impersonator utility');
     }
 }
