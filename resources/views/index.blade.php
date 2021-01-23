@@ -13,18 +13,18 @@
 
     @if(session()->has('impersonator_id'))
         <h2 class="mt-5 mb-1 font-bold text-lg">
-            Impersonation Session Active
+            {{ __('Impersonation Session Active') }}
         </h2>
 
         <p class="text-sm text-grey mb-2">
-            You are currently impersonating another user, please
-            <a href="{{ cp_route('impersonator.terminate') }}">return to your own account</a>
-            to switch to another user.
+            {{ __('You are currently impersonating another user, please') }}
+            <a href="{{ cp_route('impersonator.terminate') }}">{{ __('return to your own account') }}</a>
+            {{ __('to switch to another user.') }}
         </p>
     @else
         <p class="mb-2 text-sm text-grey leading-normal">
-            Select a user below and click "Go" to start your Impersonation session.<br>
-            To terminate your session, click the <strong>"Back to my account"</strong> link (<a href="https://github.com/aryehraber/statamic-impersonator/blob/statamic-3/README.md#usage">see Docs</a>).
+            {{ __('Select a user below and click ":login" to start your Impersonation session.', ['login' => __('Log in')]) }}<br>
+            {{ __('To terminate your session, click the ":link" link', ['link' => __('Back to my account')]) }} (<a href="https://github.com/aryehraber/statamic-impersonator/#usage">{{ __('see Docs') }}</a>).
         </p>
 
         <div class="card">
@@ -43,7 +43,7 @@
                     <svg-icon name="chevron-down-xs" class="absolute inset-y-0 right-0 w-2 h-full mr-1.5 pointer-events-none"></svg-icon>
                 </div>
 
-                <button class="btn-primary ml-1">{{ __('Go') }}</button>
+                <button class="btn-primary ml-1">{{ __('Log in') }}</button>
             </form>
         </div>
     @endif
