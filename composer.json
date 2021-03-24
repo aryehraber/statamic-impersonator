@@ -1,5 +1,5 @@
 {
-    "name": "aryehraber/statamic-impersonator",
+    "name": "skylennard/statamic-impersonator",
     "type": "statamic-addon",
     "description": "Give Admins the ability to authenticate as any user for easier debugging.",
     "keywords": [
