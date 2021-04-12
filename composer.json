@@ -10,7 +10,7 @@
     "homepage": "https://github.com/aryehraber/statamic-impersonator",
     "license": "MIT",
     "require": {
-        "statamic/cms": "^3.0"
+        "statamic/cms": "3.0.* || 3.1.*"
     },
     "autoload": {
         "psr-4": {
