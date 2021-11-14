@@ -15,6 +15,11 @@ class ImpersonatorAction extends Action
         if (! $item instanceof User) {
             return false;
         }
+        
+        // Avoid super user impersonation if not super user currently
+        if (!Auth::user()->isSuper() && $item->isSuper()) {
+            return false;
+        }
 
         if (Auth::user()->getAuthIdentifier() === $item->getAuthIdentifier()) {
             return false;
