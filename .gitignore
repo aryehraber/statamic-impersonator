@@ -6,3 +6,5 @@ webpack.config.js
 webpack.mix.js
 gulpfile.js
 yarn.lock
+composer.lock
+/vendor
