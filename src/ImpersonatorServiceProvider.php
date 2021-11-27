@@ -53,8 +53,8 @@ class ImpersonatorServiceProvider extends AddonServiceProvider
 
         Nav::extend(function ($nav) {
             if (session()->has('impersonator_id')) {
-                $nav->create('Back to my account')
-                    ->section('Impersonator')
+                $nav->create(__('Back to my account'))
+                    ->section(__('Impersonator'))
                     ->route('impersonator.terminate')
                     ->active('utilities/impersonator')
                     ->icon('revealer');
