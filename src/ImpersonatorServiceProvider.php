@@ -2,10 +2,10 @@
 
 namespace AryehRaber\Impersonator;
 
-use Statamic\Facades\CP\Nav;
-use Statamic\Facades\Utility;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
+use Statamic\Facades\CP\Nav;
+use Statamic\Facades\Utility;
 use Statamic\Providers\AddonServiceProvider;
 
 class ImpersonatorServiceProvider extends AddonServiceProvider
@@ -41,24 +41,26 @@ class ImpersonatorServiceProvider extends AddonServiceProvider
             __DIR__.'/../config/impersonator.php' => config_path('impersonator.php'),
         ], 'config');
 
-        Utility::make('impersonator')
-            ->title(__('Impersonator'))
-            ->icon('revealer')
-            ->description(__('Authenticate as another user.'))
-            ->routes(function (Router $router) {
-                $router->get('/', [ImpersonatorController::class, 'index'])->name('index');
-                $router->post('/', [ImpersonatorController::class, 'store'])->name('store');
-            })
-            ->register();
+        $this->app->booted(function () {
+            Utility::make('impersonator')
+                ->title(__('Impersonator'))
+                ->icon('revealer')
+                ->description(__('Authenticate as another user.'))
+                ->routes(function (Router $router) {
+                    $router->get('/', [ImpersonatorController::class, 'index'])->name('index');
+                    $router->post('/', [ImpersonatorController::class, 'store'])->name('store');
+                })
+                ->register();
 
-        Nav::extend(function ($nav) {
-            if (session()->has('impersonator_id')) {
-                $nav->create(__('Back to my account'))
-                    ->section(__('Impersonator'))
-                    ->route('impersonator.terminate')
-                    ->active('utilities/impersonator')
-                    ->icon('revealer');
-            }
+            Nav::extend(function ($nav) {
+                if (session()->has('impersonator_id')) {
+                    $nav->create(__('Back to my account'))
+                        ->section(__('Impersonator'))
+                        ->route('impersonator.terminate')
+                        ->active('utilities/impersonator')
+                        ->icon('revealer');
+                }
+            });
         });
 
         ImpersonatorAction::register();
