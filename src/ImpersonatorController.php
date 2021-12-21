@@ -28,6 +28,10 @@ class ImpersonatorController extends Controller
             return back()->with('error', __('Impersonation failed: user not found.'));
         }
 
+        if (! User::current()->isSuper() && $user->isSuper()) {
+            return back()->with('error', __('Impersonation failed: non-Super Admin users cannot impersonate Super Admin users.'));
+        }
+
         Impersonator::impersonate($user);
 
         return redirect(Impersonator::redirectTo($user))->with('success', __('Impersonation session started!'));
