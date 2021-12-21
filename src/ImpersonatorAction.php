@@ -2,9 +2,10 @@
 
 namespace AryehRaber\Impersonator;
 
-use Statamic\Actions\Action;
-use Statamic\Contracts\Auth\User;
 use Illuminate\Support\Facades\Auth;
+use Statamic\Actions\Action;
+use Statamic\Contracts\Auth\User as UserContract;
+use Statamic\Facades\User;
 
 class ImpersonatorAction extends Action
 {
@@ -12,12 +13,12 @@ class ImpersonatorAction extends Action
 
     public function visibleTo($item)
     {
-        if (! $item instanceof User) {
+        if (! $item instanceof UserContract) {
             return false;
         }
-        
+
         // Avoid super user impersonation if not super user currently
-        if (!Auth::user()->isSuper() && $item->isSuper()) {
+        if (! User::current()->isSuper() && $item->isSuper()) {
             return false;
         }
 
