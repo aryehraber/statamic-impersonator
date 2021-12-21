@@ -2,9 +2,8 @@
 
 namespace AryehRaber\Impersonator;
 
-use Statamic\Facades\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Statamic\Facades\User;
 use Statamic\Http\Controllers\Controller;
 
 class ImpersonatorController extends Controller
@@ -12,7 +11,8 @@ class ImpersonatorController extends Controller
     public function index()
     {
         $users = User::all()->reject(function ($user) {
-            return Auth::user()->getAuthIdentifier() === $user->getAuthIdentifier();
+            return Auth::user()->getAuthIdentifier() === $user->getAuthIdentifier()
+                || ! User::current()->isSuper() && $user->isSuper();
         });
 
         return view('impersonator::index', ['users' => $users]);
