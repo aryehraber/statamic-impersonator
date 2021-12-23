@@ -40,7 +40,7 @@ class ImpersonatorAction extends Action
 
     public function run($items, $values)
     {
-        if (! ($user = $items->first()) instanceof User) {
+        if (! ($user = $items->first()) instanceof UserContract) {
             return;
         }
 
@@ -49,7 +49,7 @@ class ImpersonatorAction extends Action
 
     public function redirect($items, $values)
     {
-        if (! ($user = $items->first()) instanceof User) {
+        if (! ($user = $items->first()) instanceof UserContract) {
             return;
         }
 
