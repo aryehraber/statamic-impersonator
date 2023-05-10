@@ -13,7 +13,7 @@ composer require aryehraber/statamic-impersonator
 Publish the config file (optional):
 
 ```
-php artisan vendor:publish --provider="AryehRaber\Impersonator\ImpersonatorServiceProvider" --tag="config"
+php artisan vendor:publish --tag=impersonator-config
 ```
 
 After installation, all Super Admins will see a new Impersonator utility listed under `Tools > Utilities`. Regular CP users can also be given access, but will require the "Impersonator" permission to be activated for their User Role.
@@ -40,7 +40,7 @@ This tag allows you to check whether the current user is in an active Impersonat
 
 Show the terminate link to Impersonators only:
 
-```html
+```antlers
 {{ if {impersonator:active} }}
   <a href="{{ impersonator:terminate }}">Head Back</a>
 {{ /if }}
@@ -48,7 +48,7 @@ Show the terminate link to Impersonators only:
 
 Hide sensitive information from Impersonators:
 
-```html
+```antlers
 {{ unless {impersonator:active} }}
   <p>Personal user info</p>
 {{ /unless }}
