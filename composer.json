@@ -30,7 +30,7 @@
             "name": "Impersonator",
             "slug": "impersonator",
             "description": "Give Admins the ability to authenticate as any user for easier debugging.",
-            "version": "2.0.0"
+            "version": "2.5.0"
         },
         "laravel": {
             "providers": [
