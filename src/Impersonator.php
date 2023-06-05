@@ -2,9 +2,9 @@
 
 namespace AryehRaber\Impersonator;
 
+use Statamic\Facades\User;
 use Illuminate\Events\NullDispatcher;
 use Illuminate\Support\Facades\Auth;
-use Statamic\Facades\User;
 
 class Impersonator
 {
