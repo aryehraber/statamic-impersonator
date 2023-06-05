@@ -2,9 +2,9 @@
 
 namespace AryehRaber\Impersonator;
 
-use Statamic\Facades\User;
 use Illuminate\Events\NullDispatcher;
 use Illuminate\Support\Facades\Auth;
+use Statamic\Facades\User;
 
 class Impersonator
 {
@@ -12,7 +12,7 @@ class Impersonator
     {
         session()->put('impersonator_id', Auth::user()->getAuthIdentifier());
 
-        self::loginQuietly($user);
+        static::loginQuietly($user);
     }
 
     public static function terminate()
@@ -21,7 +21,7 @@ class Impersonator
             return false;
         }
 
-        self::loginQuietly($user);
+        static::loginQuietly($user);
 
         session()->forget('impersonator_id');
 
