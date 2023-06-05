@@ -3,6 +3,7 @@
 namespace AryehRaber\Impersonator;
 
 use Statamic\Facades\User;
+use Illuminate\Events\NullDispatcher;
 use Illuminate\Support\Facades\Auth;
 
 class Impersonator
@@ -11,7 +12,7 @@ class Impersonator
     {
         session()->put('impersonator_id', Auth::user()->getAuthIdentifier());
 
-        Auth::loginUsingId($user->getAuthIdentifier());
+        self::loginQuietly($user);
     }
 
     public static function terminate()
@@ -20,7 +21,7 @@ class Impersonator
             return false;
         }
 
-        Auth::loginUsingId($user->getAuthIdentifier());
+        self::loginQuietly($user);
 
         session()->forget('impersonator_id');
 
@@ -34,5 +35,22 @@ class Impersonator
         }
 
         return $user->can('access cp') ? cp_route('dashboard') : '/';
+    }
+
+    public static function loginQuietly($user)
+    {
+        $dispatcher = Auth::getDispatcher();
+
+        if ($dispatcher) {
+            Auth::setDispatcher(new NullDispatcher($dispatcher));
+        }
+
+        try {
+            Auth::loginUsingId($user->getAuthIdentifier());
+        } finally {
+            if ($dispatcher) {
+                Auth::setDispatcher($dispatcher);
+            }
+        }
     }
 }
