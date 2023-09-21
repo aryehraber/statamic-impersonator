@@ -1,3 +1,8 @@
+> [!NOTE]
+> This addon has been archived since impersonating users was added to Statamic core in [v4.23.0](https://github.com/statamic/cms/releases/tag/v4.23.0)
+
+---
+
 # Impersonator
 
 **Give Admins the ability to authenticate as any user for easier debugging.**
